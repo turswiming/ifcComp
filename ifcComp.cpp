@@ -32,8 +32,8 @@ int main()
     for (auto & p:mesh.points()) {
         p = p - CGAL::Vector_3<Kernel>(bbox.xmin() + diffX, bbox.ymin() + diffY, bbox.zmin() + diffZ);
     }
-    CGAL::draw(mesh);
-    ClusterToVox(mesh, 0.1);
-
+    ClusterToVox clusterToVox; // Fix: Specify template argument for ClusterToVox
+    Polyhedron voxMesh = clusterToVox.cluster(mesh, 4);
+    CGAL::draw(voxMesh);
     return EXIT_SUCCESS;
 }

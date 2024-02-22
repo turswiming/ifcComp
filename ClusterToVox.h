@@ -5,13 +5,16 @@
 #ifndef IFCCOMP_CLUSTERTOVOX_H
 #define IFCCOMP_CLUSTERTOVOX_H
 
-template <typename Mesh>
+#include "Eigen/Core"
+#include "ifcComp.h"
+
 class ClusterToVox {
 public:
     void clusterToVox();
-    Mesh clusterToVox(const Mesh& mesh, double resolution);
-};
+    Polyhedron cluster(const Polyhedron& mesh, double resolution);
+    void GenerateVoxel(Eigen::Vector3i v, double resolution, Polyhedron &result);
 
+};
 
 
 
