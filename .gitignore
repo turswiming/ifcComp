@@ -1,2 +1,6 @@
 /build/
 /pcl/build/
+.idea/
+.vscode/
+cmake-build-debug/
+cmake-build-debug-visual-studio/
