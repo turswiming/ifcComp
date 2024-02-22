@@ -124,29 +124,29 @@ Polyhedron ClusterToVox::cluster(const Polyhedron &mesh, double resolution)
     auto poly = mesh;
     
     std::vector<Eigen::Vector3d> points;
-    auto f = poly.faces_begin()
+    auto f = poly.facets_begin();
     
-    do {
+    // do {
         
-        auto v = f.vertices_begin();
-        std::queue<Eigen::Vector3d> fvertices;
-        do
-        {
-        } while (v != f.vertices_end());
+    //     auto v = f->facet_begin();
+    //     std::queue<Eigen::Vector3d> fvertices;
+    //     do
+    //     {
+    //     } while (v != f.vertices_end());
         
-        //get the distance between the two points
-        double distance = CGAL::sqrt(CGAL::squared_distance(startPoint, endPoint));
-        auto diff = endPoint - startPoint;
-        auto step = Normalize(diff)*resolution;
-        for (double i = 0; i < distance; i += resolution)
-        {
-            points.push_back(startPoint + diff * i * resolution);
-        }
-    } while (++f != poly.faces_end());
+    //     //get the distance between the two points
+    //     double distance = CGAL::sqrt(CGAL::squared_distance(startPoint, endPoint));
+    //     auto diff = endPoint - startPoint;
+    //     auto step = Normalize(diff)*resolution;
+    //     for (double i = 0; i < distance; i += resolution)
+    //     {
+    //         points.push_back(startPoint + diff * i * resolution);
+    //     }
+    // } while (++f != poly.facets_end());
 
 
     std::unordered_set<Eigen::Vector3i,hash_eigen<Eigen::Vector3i>> clusters;
-    for (const auto &p : points)
+    for (const auto &p : poly.points())
     {
         Eigen::Vector3i v;
 
