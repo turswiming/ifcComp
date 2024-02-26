@@ -4,3 +4,6 @@
 [submodule "vcpkg"]
 	path = vcpkg
 	url = https://github.com/microsoft/vcpkg.git
+[submodule "ifcshell"]
+	path = ifcshell
+	url = https://github.com/IfcOpenShell/IfcOpenshell.git
